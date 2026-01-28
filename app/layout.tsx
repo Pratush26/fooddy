@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Corinthia } from "next/font/google";
 import "./globals.css";
 import Providers from "@/providers/Provider";
+import Navbar from "@/components/Shared/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -11,6 +12,11 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+const corinthia = Corinthia({
+  variable: "--font-corinthia",
+  subsets: ["latin"],
+  weight: ["400", "700"]
 });
 
 export const metadata: Metadata = {
@@ -26,9 +32,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col justify-between max-h-screen`}
+        className={`${corinthia.variable} ${geistSans.variable} ${geistMono.variable} antialiased flex flex-col justify-between max-h-screen`}
       >
         <Providers>
+          <Navbar />
           {children}
         </Providers>
       </body>

@@ -123,6 +123,11 @@
     @apply bg-background text-foreground;
   }
 }
+/* Font */
+.cursive{
+  font-family: "sans-serif", "Corinthia";
+}
+/* link */
 nav>a.active{
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -137,6 +142,7 @@ aside>a.active{
 .sideLink:hover{
   background-color: #efefef;
 }
+/* buttons */
 .btn{
   padding: 10px 20px;
   cursor: pointer;
