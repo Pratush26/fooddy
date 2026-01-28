@@ -123,3 +123,47 @@
     @apply bg-background text-foreground;
   }
 }
+nav>a.active{
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+aside>a.active{
+  background-color: #dfdfdf;
+}
+.sideLink{
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+.sideLink:hover{
+  background-color: #efefef;
+}
+.btn{
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.btn-primary{
+  background-color: var(--chart-3);
+  color: white;
+  font-size: small;
+  font-weight: 700;
+}
+.btn-primary:hover{
+  background-color: var(--chart-5);
+  transform: scale(1.05);
+}
+.btn-primary:disabled{
+  background-color: darkgray;
+  transform: scale(1.05);
+}
+.btn-out{
+  border: 1px solid var(--chart-3);
+  font-size: small;
+  font-weight: 700;
+}
+.btn-out:hover{
+  border: 1px solid var(--chart-5);
+  transform: scale(1.05);
+}
+.trns{
+  @apply transition-discrete duration-300 transition-all
+}
