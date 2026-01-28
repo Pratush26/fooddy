@@ -4,10 +4,10 @@ import Sidebar from "./sidebar";
 
 export default async function Navbar() {
     return (
-        <header className="bg-muted text-white w-full sticky top-0">
+        <header className="bg-muted text-white w-full sticky top-0 z-50">
             <nav className="flex items-center justify-between w-11/12 mx-auto my-4 text-sm font-medium">
                 <div className="text-chart-3">
-                <Logo />
+                    <Logo />
                 </div>
                 <div className="space-x-2">
                     <NavLink href="/">Home</NavLink>

@@ -3,6 +3,8 @@ import { Geist, Geist_Mono, Corinthia } from "next/font/google";
 import "./globals.css";
 import Providers from "@/providers/Provider";
 import Navbar from "@/components/Shared/Navbar";
+import Footer from "@/components/Shared/Footer";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,11 +34,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${corinthia.variable} ${geistSans.variable} ${geistMono.variable} antialiased flex flex-col justify-between max-h-screen`}
+        className={`${corinthia.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
-          <Navbar />
-          {children}
+          <div className="flex flex-col justify-between min-h-screen">
+            <Navbar />
+            {children}
+            <Footer />
+          </div>
+          <Toaster />
         </Providers>
       </body>
     </html>

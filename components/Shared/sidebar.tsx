@@ -18,7 +18,7 @@ export default function Sidebar() {
                         <RxHamburgerMenu />
                 }
             </button>
-            <aside className={`fixed ${isOpened ? "translate-x-0" : "translate-x-full"} top-16 right-0 bg-(--base-200) flex flex-col justify-center gap-2 trns p-3 rounded-lg`}>
+            <aside className={`fixed ${isOpened ? "translate-x-0" : "translate-x-full"} top-16 right-0 bg-sidebar flex flex-col justify-center gap-2 trns p-2 rounded-lg`}>
                 {/* {
                     session?.user ?
                         <>
@@ -47,6 +47,7 @@ export default function Sidebar() {
                         </>
                         : */}
                         <>
+                            <SidebarLink href="/">Home</SidebarLink>
                             <SidebarLink href="/login">Login</SidebarLink>
                         </>
                 {/* } */}
