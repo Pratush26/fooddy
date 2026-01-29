@@ -22,7 +22,7 @@ interface dataType {
   stock: number;
   unit: string;
 }
-export default function AddItemsForm() {
+export default function AddFoodForm() {
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<dataType>()
 
   const formSubmit = async (data: dataType) => {
@@ -46,7 +46,7 @@ export default function AddItemsForm() {
         return;
       }
       data.photo = uploadResult.secure_url;
-      const res = await fetch("/api/item", {
+      const res = await fetch("/api/food", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
