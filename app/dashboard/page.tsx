@@ -1,0 +1,55 @@
+import { cookies } from "next/headers";
+import jwt from "jsonwebtoken";
+import { redirect } from "next/navigation";
+import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
+
+interface JwtPayload {
+    _id: string;
+    email: string;
+    name: string;
+    photo: string;
+    role: string;
+    iat: number;
+    exp: number;
+}
+
+export default async function Dashboard() {
+    const token = (await cookies()).get("accessToken")?.value;
+
+    if (!token) redirect("/login");
+
+    let user: JwtPayload;
+    try {
+        user = jwt.verify(
+            token,
+            process.env.ACCESS_TOKEN_SECRET!
+        ) as JwtPayload;
+    } catch {
+        redirect("/login");
+    }
+
+    return (
+        <main className="max-w-3xl mx-auto p-6">
+            <h1 className="text-3xl font-semibold mb-4">
+                Welcome, {user.name} 👋
+            </h1>
+
+            <div className="rounded-lg border p-4 flex flex-col items-center justify-center gap-3">
+                <div className="relative h-20 aspect-square rounded-full overflow-hidden">
+                    <Image
+                        src={user.photo}
+                        fill
+                        alt={user.name}
+                        className="object-contain"
+                    />
+                </div>
+                <Badge variant={"secondary"}>
+                    <strong>Role:</strong> {user.role}
+                </Badge>
+                <p><strong>Email:</strong> {user.email}</p>
+                <p><strong>User ID:</strong> {user._id}</p>
+            </div>
+        </main>
+    );
+}
