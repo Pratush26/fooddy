@@ -5,28 +5,32 @@ import { useRouter } from "next/navigation"
 import { toast } from "sonner"
 
 interface userInfo {
-    email: string;
-    password: string;
+  email: string;
+  password: string;
 }
 export default function LoginForm() {
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<userInfo>()
   const router = useRouter()
   const formSubmit = async (data: userInfo) => {
     try {
-      // const res = await signIn("credentials", {
-      //   email: data.email,
-      //   password: data.password,
-      //   redirect: false,
-      // });
+      const res = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify(data),
+      });
 
-      // if (res?.error) {
-      //   toast.warning("Invalid email or password");
-      // } else {
+      const json = await res.json();
+
+      if (!res.ok) {
+        toast.warning(json?.message || "Invalid email or password");
+        return;
+      } else {
         reset()
         toast.success("Welcome back!");
         router.push("/dashboard");
         router.refresh();
-      // }
+      }
     } catch (err) {
       console.error(err)
       toast.error("Something went wrong!")

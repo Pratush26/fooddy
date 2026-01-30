@@ -45,7 +45,7 @@ export default function RegistrationForm() {
 
       if (res.ok) {
         toast.success(result.message || "Successfully registered user");
-        // reset();
+        reset();
       } else {
         toast.error(result.message || "Something went wrong!");
       }
