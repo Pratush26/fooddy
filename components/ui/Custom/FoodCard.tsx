@@ -4,14 +4,15 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 
-type Food = {
+interface Category{
+  name: string
+}
+interface Food {
   _id: string;
-  category: string;
-  createdAt: string;
+  category: Category;
   description: string;
   photo: string;
   price: number;
-  stock: number;
   title: string;
   unit: string;
 };
@@ -36,7 +37,7 @@ export default function FoodCard({ food }: { food: Food }) {
           <CardTitle className="line-clamp-1 text-lg">{food.title}</CardTitle>
         </div>
           <Badge variant={"secondary"}>
-            Category: {food.category}
+            Category: {food.category.name}
           </Badge>
 
       </CardHeader>

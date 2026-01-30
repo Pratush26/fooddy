@@ -1,8 +1,11 @@
 import FoodCard from "@/components/ui/Custom/FoodCard";
 
-type Food = {
+interface Category{
+  name: string
+}
+interface Food {
   _id: string;
-  category: string;
+  category: Category;
   createdAt: string;
   description: string;
   photo: string;
