@@ -2,17 +2,14 @@
 import { useForm } from "react-hook-form"
 import '@/utils/styles/form.css'
 import { toast } from "sonner"
+import { Spinner } from "../ui/spinner"
+import { useEffect, useState } from "react"
 
-const categoryList = [
-  {
-    _id: 1,
-    name: "grocery"
-  },
-  {
-    _id: 2,
-    name: "perfume"
-  }
-]
+interface Category {
+  _id: string;
+  name: string;
+}
+
 interface dataType {
   title: string;
   description: string;
@@ -24,6 +21,37 @@ interface dataType {
 }
 export default function AddFoodForm() {
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<dataType>()
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const res = await fetch("/api/food/category", {
+          cache: "no-store"
+        });
+        if (!res.ok) throw new Error("Failed to fetch");
+
+        const result = await res.json();
+        setCategories(result.categories ?? result);
+      } catch (err: unknown) {
+        setCategories([]);
+        console.error(err)
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
+  if (loading) {
+    return (
+      <main className="flex items-center justify-center min-h-[80vh] w-full">
+        <Spinner className="size-6" />
+      </main>
+    )
+  }
 
   const formSubmit = async (data: dataType) => {
     if (!data?.photo) {
@@ -101,7 +129,7 @@ export default function AddFoodForm() {
         <input type="text" {...register("category", { required: "category is required" })} list="categories" placeholder="Enter product category" id="category" />
         <datalist id="categories">
           {
-            categoryList?.map(e => <option key={e._id} value={e.name} className="capitalize">{e.name}</option>)
+            categories?.map(e => <option key={e._id} value={e.name} className="capitalize">{e.name}</option>)
           }
         </datalist>
       </div>

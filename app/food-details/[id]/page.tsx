@@ -20,7 +20,9 @@ interface Food {
 };
 export default async function FoodDetails({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params
-    const res = await fetch(`${process.env.SERVER}/food/id/${id}`);
+    const res = await fetch(`${process.env.SERVER}/food/id/${id}`, {
+        cache: "no-store",
+    });
     const result = await res.json()
     const { food }: { food: Food } = result;
     const inStock = food.stock > 0;
