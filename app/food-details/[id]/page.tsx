@@ -32,15 +32,14 @@ export default async function FoodDetails({ params }: { params: Promise<{ id: st
         <main className="mx-auto w-11/12 my-10">
             <div className="grid gap-8 grid-cols-1 md:grid-cols-2">
                 {/* Image */}
-                <div className="relative w-full h-auto aspect-auto rounded-2xl overflow-hidden shadow-ring shadow-lg/20">
-                    <Image
-                        src={food.photo}
-                        alt={food.title}
-                        fill
-                        className="object-cover"
-                        priority
-                    />
-                </div>
+                <Image
+                    src={food.photo}
+                    alt={food.title}
+                    width={1200}
+                    height={800} // original ratio (or close)
+                    className="w-full h-auto rounded-2xl object-cover shadow-lg/20"
+                    priority
+                />
 
                 {/* Details */}
                 <div className="space-y-4">
