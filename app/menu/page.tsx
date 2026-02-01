@@ -16,7 +16,7 @@ interface Food {
 };
 
 export default async function Menu() {
-    const res = await fetch(`${process.env.SERVER}/food/all`, {
+    const res = await fetch(`${process.env.SERVER}/food/all?limit=12`, {
         cache: "no-store",
     });
     const result = await res.json()

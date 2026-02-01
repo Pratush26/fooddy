@@ -116,7 +116,7 @@ export default function AddFoodForm() {
           <option value="" disabled>N/A</option>
           <option value="kg">kg</option>
           <option value="pcs">pcs</option>
-          <option value="ml">ml</option>
+          <option value="glass">glass</option>
           <option value="liter">liter</option>
         </select>
       </div>
