@@ -6,7 +6,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="py-20 bg-muted text-white">
+    <section className="py-20 bg-muted text-foreground">
       <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-3 text-center gap-6">
         {stats.map((stat, idx) => (
           <div key={idx}>

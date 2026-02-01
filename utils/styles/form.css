@@ -1,8 +1,8 @@
 input,
 textarea,
 select {
-    background-color: var(--color-primary);
-    color: var(--color-primary-foreground);
+    background-color: white;
+    color: black;
     padding: 10px 20px;
     font-size: .9rem;
     width: 100%;

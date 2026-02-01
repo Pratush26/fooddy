@@ -5,6 +5,7 @@ import { RxCross2, RxHamburgerMenu } from "react-icons/rx";
 import SidebarLink from "../LinkWrapper/SidebarLink";
 import Image from "next/image";
 import LogoutButton from "../Buttons/Logout";
+import { ThemeToggle } from "../Buttons/Theme";
 
 interface JwtPayload {
     _id: string;
@@ -66,6 +67,9 @@ export default function Sidebar({ user }: { user: JwtPayload | null }) {
                     <SidebarLink href="/about">About Us</SidebarLink>
                     <SidebarLink href="/contact">Contact Us</SidebarLink>
                     <SidebarLink href="/menu">Menu</SidebarLink>
+                </div>
+                <div className="p-2">
+                <ThemeToggle />
                 </div>
             </aside>
         </section>
