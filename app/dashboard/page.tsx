@@ -42,14 +42,13 @@ export default async function Dashboard() {
                         src={user.photo}
                         fill
                         alt={user.name}
-                        className="object-contain"
+                        className="object-cover"
                     />
                 </div>
                 <Badge variant={"secondary"}>
                     <strong>Role:</strong> {user.role}
                 </Badge>
                 <p><strong>Email:</strong> {user.email}</p>
-                <p><strong>User ID:</strong> {user._id}</p>
             </div>
             <div className="m-2 w-fit mx-auto">
                 <LogoutButton />
