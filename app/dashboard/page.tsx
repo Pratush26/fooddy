@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import { redirect } from "next/navigation";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
+import LogoutButton from "@/components/Buttons/Logout";
 
 interface JwtPayload {
     _id: string;
@@ -49,6 +50,9 @@ export default async function Dashboard() {
                 </Badge>
                 <p><strong>Email:</strong> {user.email}</p>
                 <p><strong>User ID:</strong> {user._id}</p>
+            </div>
+            <div className="m-2 w-fit mx-auto">
+                <LogoutButton />
             </div>
         </main>
     );
