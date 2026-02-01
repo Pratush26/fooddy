@@ -29,15 +29,12 @@ export default function FoodCard({ food }: { food: Food }) {
           alt={food.title}
           fill
           className="object-cover"
-          sizes="(max-width: 768px) 100vw, 420px"
           priority={false}
         />
       </div>
 
       <CardHeader className="space-y-2">
-        <div className="flex items-start justify-between gap-3">
           <CardTitle className="line-clamp-1 text-lg">{food.title}</CardTitle>
-        </div>
         <Badge variant={"secondary"}>
           Category: {food.category.name}
         </Badge>
@@ -46,7 +43,7 @@ export default function FoodCard({ food }: { food: Food }) {
 
       <CardContent className="space-y-3">
         <p className="line-clamp-2 text-sm text-muted-foreground">{food.description}</p>
-        <div className="flex items-center justify-between">
+        <div className="flex gap-2 items-center justify-between">
           <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
             <span className="font-medium text-foreground">৳{food.price}</span>
             <span>•</span>
@@ -56,7 +53,7 @@ export default function FoodCard({ food }: { food: Food }) {
         </div>
       </CardContent>
 
-      <CardFooter className="flex items-center justify-between">
+      <CardFooter className="flex gap-2 items-center justify-between">
         <AddToCartBtn title={food.title} id={food._id} />
         <BuyNowBtn title={food.title} id={food._id} />
       </CardFooter>
