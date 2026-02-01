@@ -1,3 +1,5 @@
+import AddToCartBtn from "@/components/Buttons/AddToCart";
+import BuyNowBtn from "@/components/Buttons/BuyNow";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
@@ -67,27 +69,18 @@ export default async function FoodDetails({ params }: { params: Promise<{ id: st
                     <Separator />
 
                     <div className="flex flex-col gap-2 pt-2 sm:flex-row">
-                        <button
-                            disabled={!inStock}
-                            className="btn btn-out trns rounded-full w-full"
-                        >
-                            Add to cart
-                        </button>
-                        <button className="btn btn-primary trns rounded-full w-full">
-                            Buy Now
-                        </button>
+                        {inStock && <AddToCartBtn title={food.title} id={food._id} />}
+                        <BuyNowBtn title={food.title} id={food._id} />
                     </div>
-                    <div className="flex flex-col gap-2 pt-2 sm:flex-row items-center text-center">
-                        <p className="text-xs text-muted-foreground">
-                            Tip: If you want “Back to menu” to work, wrap it with a Next <code>Link</code> to your listing page.
-                        </p>
-                        <Link
-                            href={"/menu"}
-                            className="btn btn-out trns rounded-full"
-                        >
-                            Back To Main Menu
-                        </Link>
-                    </div>
+                    <p className="text-xs text-muted-foreground">
+                        Tip: If you want “Back to menu” to work, wrap it with a Next <code>Link</code> to your listing page.
+                    </p>
+                    <Link
+                        href={"/menu"}
+                        className="btn btn-out trns rounded-full"
+                    >
+                        Back To Main Menu
+                    </Link>
                 </div>
             </div>
         </main>

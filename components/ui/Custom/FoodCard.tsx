@@ -3,8 +3,10 @@ import Image from "next/image";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import AddToCartBtn from "@/components/Buttons/AddToCart";
+import BuyNowBtn from "@/components/Buttons/BuyNow";
 
-interface Category{
+interface Category {
   name: string
 }
 interface Food {
@@ -36,23 +38,27 @@ export default function FoodCard({ food }: { food: Food }) {
         <div className="flex items-start justify-between gap-3">
           <CardTitle className="line-clamp-1 text-lg">{food.title}</CardTitle>
         </div>
-          <Badge variant={"secondary"}>
-            Category: {food.category.name}
-          </Badge>
+        <Badge variant={"secondary"}>
+          Category: {food.category.name}
+        </Badge>
 
       </CardHeader>
 
       <CardContent className="space-y-3">
         <p className="line-clamp-2 text-sm text-muted-foreground">{food.description}</p>
+        <div className="flex items-center justify-between">
+          <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
+            <span className="font-medium text-foreground">৳{food.price}</span>
+            <span>•</span>
+            <span>per {food.unit}</span>
+          </div>
+          <Link href={`/food-details/${food._id}`} className="text-xs italic hover:underline trns" >View Details</Link>
+        </div>
       </CardContent>
 
       <CardFooter className="flex items-center justify-between">
-        <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-          <span className="font-medium text-foreground">৳{food.price}</span>
-          <span>•</span>
-          <span>per {food.unit}</span>
-        </div>
-        <Link href={`/food-details/${food._id}`} className="text-xs italic hover:underline trns" >View Details</Link>
+        <AddToCartBtn title={food.title} id={food._id} />
+        <BuyNowBtn title={food.title} id={food._id} />
       </CardFooter>
     </Card>
   );
