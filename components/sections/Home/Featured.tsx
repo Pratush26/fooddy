@@ -23,7 +23,7 @@ export default async function Featured() {
     const result = await res.json()
     const { foods }: { foods: Food[] } = result;
     return (
-        <section className="flex flex-col items-center justify-center gap-2 my-18">
+        <section className="flex flex-col items-center justify-center gap-2 my-20">
             <div className="space-y-3 text-center w-11/12 mx-auto">
                 <h3 className="text-4xl font-bold">Popular Dishes</h3>
                 <p>Explore our popular dishes that are known for delicious teste and extra-ordinary qualities</p>

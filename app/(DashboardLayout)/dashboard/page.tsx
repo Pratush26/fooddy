@@ -31,7 +31,7 @@ export default async function Dashboard() {
     }
 
     return (
-        <main className="max-w-3xl mx-auto p-6">
+        <main className="w-11/12 text-center mx-auto p-6 my-20">
             <h1 className="text-3xl font-semibold mb-4">
                 Welcome, {user.name} 👋
             </h1>

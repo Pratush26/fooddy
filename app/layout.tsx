@@ -37,11 +37,7 @@ export default function RootLayout({
         className={`${corinthia.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
-          <div className="flex flex-col justify-between min-h-screen">
-            <Navbar />
-            {children}
-            <Footer />
-          </div>
+          {children}
           <Toaster />
         </Providers>
       </body>

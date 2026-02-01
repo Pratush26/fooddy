@@ -44,10 +44,14 @@ export default function Sidebar({ user }: { user: JwtPayload | null }) {
                                 user?.role === "admin" ?
                                     <>
                                         <SidebarLink href="/add-food">Add Food</SidebarLink>
+                                        <SidebarLink href="/manage-food">Manage Food</SidebarLink>
+                                        <SidebarLink href="/manage-order">Manage Order</SidebarLink>
                                     </>
                                     :
                                     <>
                                         <SidebarLink href="/cart">Check Cart</SidebarLink>
+                                        <SidebarLink href="/my-orders">My Orders</SidebarLink>
+                                        <SidebarLink href="/Track-order">Track Order</SidebarLink>
                                     </>
                             }
                         </>
@@ -57,6 +61,12 @@ export default function Sidebar({ user }: { user: JwtPayload | null }) {
                             <SidebarLink href="/login">Login</SidebarLink>
                         </>
                 }
+                <SidebarLink href="/terms">Terms & Conditions</SidebarLink>
+                <div className="sm:hidden flex flex-col gap-1">
+                    <SidebarLink href="/about">About Us</SidebarLink>
+                    <SidebarLink href="/contact">Contact Us</SidebarLink>
+                    <SidebarLink href="/menu">Menu</SidebarLink>
+                </div>
             </aside>
         </section>
     )

@@ -13,10 +13,12 @@ export default function Footer() {
                 </div>
                 <div className="flex flex-col gap-2">
                     <Link className="trns hover:text-gray-500 w-fit" href="/">Home</Link>
+                    <Link className="trns hover:text-gray-500 w-fit" href="/about">About Us</Link>
+                    <Link className="trns hover:text-gray-500 w-fit" href="/contact">Contact Us</Link>
                 </div>
                 <div className="flex flex-col gap-2">
                     <Link className="trns hover:text-gray-500 w-fit" href="/menu">Menu Items</Link>
-                    <Link className="trns hover:text-gray-500 w-fit" href="/login">Login</Link>
+                    <Link className="trns hover:text-gray-500 w-fit" href="/terms">Terms & Conditions</Link>
                 </div>
                 <div className="flex flex-col gap-2">
                     <h5 className="text-xl font-semibold">Social Links</h5>

@@ -34,9 +34,11 @@ export default async function Navbar() {
                 <div className="text-chart-3">
                     <Logo />
                 </div>
-                <div className="space-x-2">
+                <div className="space-x-3 hidden sm:block">
                     <NavLink href="/">Home</NavLink>
                     <NavLink href="/menu">Menu Items</NavLink>
+                    <NavLink href="/about">About Us</NavLink>
+                    <NavLink href="/contact">Contact Us</NavLink>
                 </div>
                 <Sidebar user={user ?? null} />
             </nav>
