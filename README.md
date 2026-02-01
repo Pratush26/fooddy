@@ -1,3 +1,24 @@
+# Fooddy
+This is a food ordering platform, where user can add to cart and purchase there favourite foods.
+
+| Links |
+|------------|
+|[Live Link](https://appfooddy.netlify.app)|
+|[Frontend Repository](https://github.com/Pratush26/fooddy)|
+|[Backend Repository](https://github.com/Pratush26/fooddy-backend)|   
+
+### Used Techs
+- Next js
+- React js
+- Tailwind CSS
+- React Hook Form
+- JWT
+- Sonner
+- Shadcn
+- React Icons
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
